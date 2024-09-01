@@ -1,4 +1,4 @@
 ---
 # handlers file for nerd-fonts
 - name: Update font-cache
-  command: {{ fonts_rebuild_cache }}
+  command: "{{ fonts_rebuild_cache }}"
