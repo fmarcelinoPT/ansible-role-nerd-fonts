@@ -12,6 +12,7 @@
 
 - name: Download Hack
   when: hack_exists is failed
+  become: true
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_version }}/Hack.tar.xz
     dest: "{{ fonts_folder }}"
@@ -24,6 +25,7 @@
 
 - name: Download FiraCode
   when: Fira_exists is failed
+  become: true
   ansible.builtin.unarchive:
     src: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_version }}/FiraCode.tar.xz
     dest: "{{ fonts_folder }}"
