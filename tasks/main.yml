@@ -1,0 +1,32 @@
+---
+# tasks file for nerd-fonts
+- name: Ensure fonts directory is created
+  file:
+    path: "{{ fonts_folder }}"
+    state: directory
+
+- name: Hack exists
+  shell: "ls {{ fonts_folder }}/Hack*Nerd*Font*Complete*"
+  register: hack_exists
+  ignore_errors: true
+
+- name: Download Hack
+  when: hack_exists is failed
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_version }}/Hack.zip
+    dest: "{{ fonts_folder }}"
+    remote_src: true
+
+- name: FiraCode exists
+  shell: "ls {{ fonts_folder }}/FiraCodeNerd*"
+  register: Fira_exists
+  ignore_errors: true
+
+- name: Download FiraCode
+  when: Fira_exists is failed
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v{{ fonts_version }}/FiraCode.zip
+    dest: "{{ fonts_folder }}"
+    remote_src: true
+
+# /usr/local/share/fonts and reboot (or manually rebuild the font cache with fc-cache -f -v

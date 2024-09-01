@@ -1,0 +1,5 @@
+---
+# vars file for nerd-fonts
+fonts_version: 3.2.1
+fonts_folder: /usr/local/share/fonts
+fonts_rebuild_cache: fc-cache -fv
