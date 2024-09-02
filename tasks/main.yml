@@ -6,7 +6,7 @@
     state: directory
 
 - name: Hack exists
-  shell: "ls {{ fonts_folder }}/Hack*Nerd*Font*Complete*"
+  shell: "ls {{ fonts_folder }}/HackNerdFont*"
   register: hack_exists
   ignore_errors: true
 
@@ -19,7 +19,7 @@
     remote_src: true
 
 - name: FiraCode exists
-  shell: "ls {{ fonts_folder }}/FiraCodeNerd*"
+  shell: "ls {{ fonts_folder }}/FiraCodeNerdFont*"
   register: Fira_exists
   ignore_errors: true
 
